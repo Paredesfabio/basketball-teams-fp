@@ -30,13 +30,7 @@ class TeamController extends Controller
 
     public function details(Team $team)
     {
-        $data['team'] = $team->load('division')->load('players.attributes');
-        // $data['team'] = $team->leftJoin('divisions', 'divisions.id', 'teams.division_id')
-        // ->leftJoin('players', 'players.team_id', '=', 'teams.id')
-        // ->leftJoin('attributes', 'attributes.player_id', '=', 'players.id')
-        // ->select('teams.*', 'players.*', 'attributes.*')
-        // ->where('teams.id', $team->id)
-        // ->get();
+        $data['team'] = $team->load('division')->load('players.attributes.country');
         return view('teams.detail', $data);
     }
 
@@ -53,14 +47,13 @@ class TeamController extends Controller
         if ($request->icon) {
             $createTeam['icon'] = $this->saveImage('teams', $request->icon);
         }
-        DB::statement('INSERT INTO teams (name, division_id, about, icon, color)
-                    VALUES (?, ?, ?, ?, ?)',
+        DB::statement('INSERT INTO teams (name, about, color, icon, division_id) VALUES (?, ?, ?, ?, ?)',
                     [
                         $createTeam['name'],
-                        $createTeam['division_id'],
                         $createTeam['about'],
-                        $createTeam['icon'],
                         $createTeam['color'],
+                        $createTeam['icon'],
+                        $createTeam['division_id'],
                     ]);
         return redirect()->route('team.index')
             ->with('success', 'Team created successfully.');

@@ -20,20 +20,12 @@ class PlayerController extends Controller
 
     public function __construct(protected Country $country)
     {
-        $this->countries = DB::select("SELECT * FROM countries ORDER BY name ASC");
+        $this->countries = DB::select("SELECT id, name FROM countries ORDER BY name ASC");
     }
 
     public function index()
     {
-        $data['players'] = Player::orderBy('first_name')->with('team')->with('attributes.country')->paginate(10);
-        // $data['players'] = DB::table('players')
-        //         ->join('teams', 'teams.id', 'players.team_id')
-        //         ->join('attributes', 'attributes.player_id', 'players.id')
-        //         ->join('countries', 'countries.id', 'attributes.country_id')
-        //         ->orderBy('players.first_name')
-        //         ->select('players.*', 'attributes.*',
-        //                 'teams.id', 'teams.name',
-        //                 'countries.id', 'countries.name')->get();
+        $data['players'] = Player::orderBy('first_name')->with('attributes.country')->with('team')->paginate(10);
         return view('players.index', $data);
     }
 
@@ -75,7 +67,7 @@ class PlayerController extends Controller
 
     public function update(PlayerRequest $request, Player $player)
     {
-        $playersFields = ['first_name', 'last_name','role','team_id'];
+        $playersFields = implode(',', app(Player::class)->getFillable());
         DB::statement('UPDATE players SET first_name = ?, last_name = ?, role = ?, team_id = ?
                         WHERE id = ?',
                     [
