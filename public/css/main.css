@@ -1,0 +1,163 @@
+:root {
+    --primary: #20006b;
+    --secondary: #673ab7;
+    --white-text: white;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.wrapper .row {
+    color: black;
+}
+
+.basketball-nav .nav-item .nav-link {
+    color: var(--white-text);
+}
+
+.basketball-nav .nav-item .nav-link:hover {
+    font-size: 16px;
+    font-weight: 900;
+    background-color: var(--primary) !important;
+}
+
+.division-card {
+    height: 230px !important;
+}
+
+.division-card:hover {
+    /* background-color: #3b76ab; */
+    background-color: var(--primary);
+    color: var(--white-text);
+    cursor: grab;
+}
+
+.title-text {
+    font-weight: bold;
+}
+
+.teams-board {
+    background-color: var(--white-text);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.teams-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.team-name {
+    padding-left: 5px;
+}
+
+.btn-primary {
+    background-color: var(--secondary) !important;
+    border-color: var(--white-text) !important;
+}
+
+.btn-secondary {
+    background-color: var(--secondary) !important;
+    border-color: var(--white-text) !important;
+}
+
+table thead tr {
+    text-align: center;
+    color: var(--white-text) !important;
+    background-color: var(--secondary) !important;
+}
+
+.card-background {
+    background-color: var(--primary) !important;
+    color: var(--white-text) !important;
+    font-size: 15px;
+}
+
+.custom-card-text {
+    font-size: 13px;
+    font-weight: 300 !important;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.team-card {
+    width: 18rem !important;
+    border: 0px !important;
+}
+
+.profile-top .profile-image {
+    position: relative;
+    width: 104px;
+    height: 104px;
+    margin-right: 20px;
+}
+
+.profile-top .profile-image img {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+}
+
+.profile-top .profile-image .file-uplode-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    right: -5px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    font-size: 21px;
+    -webkit-box-shadow: 0 0 10px rgba(179, 168, 168, 0.25);
+    box-shadow: 0 0 10px rgba(179, 168, 168, 0.25);
+    cursor: pointer;
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+
+.profile-top .profile-image #fileuplode {
+    display: none;
+}
+
+.radius-50 {
+    border-radius: 50%;
+}
+
+.bg-hover {
+    background-color: var(--secondary);
+}
+
+.table-text-player{
+    border: 1px solid white;
+    border-bottom: 0px;
+    width: 25% !important;
+}
+
+.table-content-player{
+    border: 1px solid white;
+    border-top: 0px;
+    padding: 0px !important;
+}
+
+.section-player {
+    padding-top: 10px !important;
+}
+
+.delete-button {
+    background-color: #bb2d3b !important;
+    color: white;
+}
