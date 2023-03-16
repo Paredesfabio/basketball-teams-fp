@@ -5,6 +5,7 @@
 /public/uploads
 /storage/*.key
 /vendor
+/postgres
 .env
 .env.backup
 .env.production
