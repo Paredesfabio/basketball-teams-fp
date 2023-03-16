@@ -20,13 +20,19 @@ git clone https://github.com/Paredesfabio/basketball-teams-fp.git
 
 4. Run ```npm install```
 
-4. Copy the ```.env.template``` file  to ```.env```
+5. Run ```npm run build```
 
-5. Create database with docker container
+6. Copy the ```.env.template``` file  to ```.env```
+
+7. Create database with docker container
 ```
   docker-compose up -d
 ```
 
-6. Run migrations ```php artisan migrate```
+8. Run migrations ```php artisan migrate```
 
-7. Run seeders ```php artisan db:seed```
+9. Run seeders ```php artisan db:seed```
+
+10. Run ```php artisan key:generate```
+
+11. Login credentials: admin@gmail.com / 123456
