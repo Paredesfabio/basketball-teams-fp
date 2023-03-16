@@ -9,16 +9,6 @@
             </div>
         </div>
 
-        {{--  <div class="row justify-content-center teams-board">
-            <div class="col-lg-6">
-                <h3 class="title-text">Division {{ $division->name }} - All teams</h2>
-            </div>
-            <div class="col-lg-6 float-end">
-                @if(auth()->check())
-                    <a class="btn btn-outline-primary float-end" href="#" role="button">Add Team</a>
-                @endif
-            </div>
-        </div>  --}}
         <div class="row justify-content-center teams-board" style="border-radius: 0px;">
 
             @foreach ($teams as $team)

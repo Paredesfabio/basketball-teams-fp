@@ -26,7 +26,6 @@
 </head>
 <body style="background-color: #f6f6f6;">
     <div id="app">
-        {{--  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">  --}}
         <nav class="navbar navbar-dark bg-dark navbar-expand-md ">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -63,14 +62,6 @@
                             @endif
 
                         @else
-
-                            {{--  <li class="nav-item">
-                                <a class="nav-link" href="{{ route('division.index') }}">Divisions</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('country.index') }}">Countries</a>
-                            </li>  --}}
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
