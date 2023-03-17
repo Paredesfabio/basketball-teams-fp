@@ -63,7 +63,7 @@
                         <li class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold">
-                                    <img src="{{getImageFile($player->attributes->image)}}" class="img-fluid rounded-start teams-icon" alt="{{ @$player->name}}">
+                                    <img src="{{getImageFile($player->attributes->image)}}" class="img-fluid radius-50 teams-icon" alt="{{ @$player->name}}">
                                     <span style="padding-left: 10px;">
                                         <a href="{{route('player.details', ['player' => $player->id])}}" class="card-link">{{ $player->name }}</a>
                                     </span>

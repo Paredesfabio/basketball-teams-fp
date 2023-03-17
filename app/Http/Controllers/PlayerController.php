@@ -4,32 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use App\Models\Player;
-use App\Models\Country;
-use App\Models\Attribute;
 use App\Http\Requests\PlayerRequest;
-use Illuminate\Http\Request;
-use App\Http\Traits\FileSaveTrait;
-use Illuminate\Support\Facades\DB;
+use App\Repositories\PlayersRepository;
 
 class PlayerController extends Controller
 {
 
-    use FileSaveTrait;
-
-    protected $countries;
-
-    public function __construct(protected Country $country)
-    {
-        $this->countries = DB::select("SELECT id, name FROM countries ORDER BY name ASC");
+    public function __construct(
+        protected PlayersRepository $playersRepository
+    ) {
+        $this->playersRepository = $playersRepository;
     }
 
     public function index()
     {
-        $data['players'] = Player::orderBy('first_name')->with('attributes.country')->with('team')->paginate(10);
+        $data['players'] = $this->playersRepository->getAll();
         return view('players.index', $data);
     }
 
-    public function details(Player $player){
+    public function details(Player $player)
+    {
         $data['player'] = $player->load('attributes')->load('team');
         return view('players.detail', $data);
     }
@@ -37,23 +31,13 @@ class PlayerController extends Controller
     public function create(Team $team)
     {
         $data['team'] = $team;
-        $data['countries'] = $this->countries;
+        $data['countries'] = $this->playersRepository->getCountries();
         return view('players.create', $data);
     }
 
     public function store(PlayerRequest $request)
     {
-        $playersFields = ['first_name', 'last_name','role','team_id'];
-        $player = Player::create($request->only($playersFields));
-
-        $createAttributes = $request->except($playersFields);
-        $createAttributes['image'] = 'img/player_default.png';
-        if ($request->image) {
-            $createAttributes['image'] = $this->saveImage('players', $request->image);
-        }
-        $createAttributes['player_id'] = $player->id;
-        Attribute::create($createAttributes);
-
+        $player = $this->playersRepository->create($request);
         return redirect()->route('team.details', ['team' => $player->team_id])
             ->with('success', 'Player created successfully.');
     }
@@ -61,31 +45,13 @@ class PlayerController extends Controller
     public function edit(Player $player)
     {
         $data['player'] = $player->load('attributes')->load('team');
-        $data['countries'] = $this->countries;
+        $data['countries'] = $this->playersRepository->getCountries();
         return view('players.edit', $data);
     }
 
     public function update(PlayerRequest $request, Player $player)
     {
-        $playersFields = implode(',', app(Player::class)->getFillable());
-        DB::statement('UPDATE players SET first_name = ?, last_name = ?, role = ?, team_id = ?
-                        WHERE id = ?',
-                    [
-                        $request->first_name,
-                        $request->last_name,
-                        $request->role,
-                        $request->team_id,
-                        $player->id
-                    ]);
-
-        $updateAttributes = $request->except($playersFields);
-        $updateAttributes['image'] = 'img/player_default.png';
-        if ($request->image) {
-            $this->deleteFile($player->image);
-            $updateAttributes['image'] = $this->saveImage('players', $request->image);
-        }
-        $player->attributes->update($updateAttributes);
-
+        $this->playersRepository->update($request, $player);
         return redirect()->route('player.details', ['player' => $player->id])
             ->with('success', 'Player updated successfully.');
     }
@@ -93,8 +59,7 @@ class PlayerController extends Controller
     public function delete(Player $player)
     {
         try {
-            $player->delete();
-            DB::statement('DELETE FROM players where id = ?',[$player->id]);
+            $this->playersRepository->delete($player->id);
             return redirect()->route('player.index')
                 ->with('success', 'Player deleted successfully');
         } catch (\Exception $e) {
@@ -102,5 +67,4 @@ class PlayerController extends Controller
                 ->with('error', 'Player could not be deleted');
         }
     }
-
 }

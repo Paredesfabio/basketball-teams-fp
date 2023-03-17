@@ -25,6 +25,9 @@ class DivisionSeeder extends Seeder
 			array('name' => 'Northwest', 'description' => fake()->paragraph()),
 			array('name' => 'Pacific', 'description' => fake()->paragraph()),
 			array('name' => 'Southwest', 'description' => fake()->paragraph()),
+            array('name' => 'Venezuela', 'description' => fake()->paragraph()),
+            array('name' => 'Colombia', 'description' => fake()->paragraph()),
+            array('name' => 'Chile', 'description' => fake()->paragraph()),
 		);
 
 		DB::table('divisions')->insert($divisions);
