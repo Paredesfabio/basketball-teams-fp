@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ @$team->name }}</h5>
                             <p class="card-text">{{ $team->id }}th in {{ $team->division->name }}</p>
-                            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                            <p class="card-text">Mascot: <small>{{ $team->mascot_name ?? 'No Name'}}</small></p>
                             @if (auth()->check())
                                 <div class="dropdown float-start" style="margin-bottom: 10px;">
                                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">

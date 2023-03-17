@@ -67,7 +67,12 @@
                         <textarea class="form-control @error('about') is-invalid @enderror" name="about" rows="3" required>{{ $team->about }}</textarea>
                     </div>
 
-                    <div class="col-md-4" style="padding-top: 10px;">
+                    <div class="col-md-6" style="padding-top: 10px;">
+                        <label class="form-label">Mascot Name</label>
+                        <input type="text" name="mascot_name" value="{{ $team->mascot_name }}" class="form-control @error('mascot_name') is-invalid @enderror" required>
+                    </div>
+
+                    <div class="col-md-6" style="padding-top: 10px;">
                         <label class="form-label">Color</label>
                         <input type="color" name="color" class="form-control form-control-color" value="{{ $team->color }}" title="Choose color" required>
                     </div>

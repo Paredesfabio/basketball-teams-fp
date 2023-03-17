@@ -39,13 +39,15 @@ class TeamRepository implements BasketballCrudInterface
             $createTeam['icon'] = $this->saveImage('teams', $data->icon);
         }
         $team = DB::statement(
-            'INSERT INTO teams (name, about, color, icon, division_id) VALUES (?, ?, ?, ?, ?)',
+            'INSERT INTO teams (name, about, color, icon, division_id, mascot_name)
+                VALUES (?, ?, ?, ?, ?, ?)',
             [
                 $createTeam['name'],
                 $createTeam['about'],
                 $createTeam['color'],
                 $createTeam['icon'],
                 $createTeam['division_id'],
+                $createTeam['mascot_name']
             ]
         );
         return $team;
@@ -67,13 +69,13 @@ class TeamRepository implements BasketballCrudInterface
     public function update($data, $team)
     {
         $updateTeam = $data->all();
-        $createTeam['icon'] = $this->defaultImage;
+        $updateTeam['icon'] = $this->defaultImage;
         if ($data->icon) {
             $this->deleteFile($team->icon);
             $updateTeam['icon'] = $this->saveImage('teams', $data->icon);
         }
         DB::statement(
-            'UPDATE teams SET name = ?, division_id = ?, about = ?, icon = ?, color = ?
+            'UPDATE teams SET name = ?, division_id = ?, about = ?, icon = ?, color = ?, mascot_name = ?
                     WHERE id = ?',
             [
                 $updateTeam['name'],
@@ -81,6 +83,7 @@ class TeamRepository implements BasketballCrudInterface
                 $updateTeam['about'],
                 $updateTeam['icon'],
                 $updateTeam['color'],
+                $updateTeam['mascot_name'],
                 $team->id
             ]
         );

@@ -14,7 +14,8 @@ class Team extends Model
         'about',
         'color',
         'icon',
-        'division_id'
+        'division_id',
+        'mascot_name'
     ];
 
     public function division()

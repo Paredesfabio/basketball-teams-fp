@@ -29,6 +29,7 @@ class TeamRequest extends FormRequest
             'color' => ['required', 'string', 'max:10'],
             'image' => 'mimes:jpeg,png,jpg|file|max:2048',
             'division_id' => ['required'],
+            'mascot_name' => ['required', 'string', 'max:100'],
         ];
     }
 }
