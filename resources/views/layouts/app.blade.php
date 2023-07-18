@@ -25,8 +25,6 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss','resources/css/app.css','resources/js/app.js'])
-    {{--  <script type="module" src="{{ mix('js/app.js') }}"></script>
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">  --}}
 
     {{--  <link rel="stylesheet" href="{{ asset('sass/app.scss') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
