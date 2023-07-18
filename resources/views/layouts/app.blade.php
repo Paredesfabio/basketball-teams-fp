@@ -15,8 +15,10 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">
-    <script src="{{ url('js/main.js') }}"></script>
+    {{--  <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">  --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    {{--  <script src="{{ url('js/main.js') }}"></script>  --}}
+    <script src="{{ asset('js/main.js') }}"></script>
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss','resources/css/app.css','resources/js/app.js'])
