@@ -6,6 +6,8 @@ use App\Models\Division;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Faker;
+
 
 class TeamSeeder extends Seeder
 {
