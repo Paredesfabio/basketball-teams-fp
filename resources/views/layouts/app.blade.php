@@ -9,7 +9,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
+    {{--  <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">  --}}
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -17,10 +18,10 @@
 
     {{--  <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">  --}}
     {{--  <link rel="stylesheet" type="text/css" href="{{ asset('sass/app.css') }}">  --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/main.css') }}">
     {{--  <script src="{{ url('js/main.js') }}"></script>  --}}
-    {{--  <script src="{{ asset('js/main.js') }}"></script>  --}}
-    <script src="{{ asset('js/main.js') }}" defer></script>
+    {{--  <script src="{{ secure_asset('js/main.js') }}"></script>  --}}
+    <script src="{{ secure_asset('js/main.js') }}" defer></script>
 
 
     <!-- Scripts -->
