@@ -9,7 +9,7 @@
 
 ## Basketball Teams Fabio Paredes
 
-1. Clone project
+1. Clone project 
 ```
 git clone https://github.com/Paredesfabio/basketball-teams-fp.git
 ```
