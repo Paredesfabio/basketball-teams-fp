@@ -16,12 +16,21 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     {{--  <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">  --}}
+    {{--  <link rel="stylesheet" type="text/css" href="{{ asset('sass/app.css') }}">  --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
     {{--  <script src="{{ url('js/main.js') }}"></script>  --}}
-    <script src="{{ asset('js/main.js') }}"></script>
+    {{--  <script src="{{ asset('js/main.js') }}"></script>  --}}
+    <script src="{{ asset('js/main.js') }}" defer></script>
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss','resources/css/app.css','resources/js/app.js'])
+    {{--  <script type="module" src="{{ mix('js/app.js') }}"></script>
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">  --}}
+
+    {{--  <link rel="stylesheet" href="{{ asset('sass/app.scss') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <script src="{{ asset('js/app.js') }}" defer></script>  --}}
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

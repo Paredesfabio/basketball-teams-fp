@@ -5,7 +5,7 @@ services:
         image: postgres:14.3
         restart: always
         ports:
-            - "5432:5432"
+            - "5435:5432"
         container_name: basketball-db
         environment:
             POSTGRES_DB: basketball
