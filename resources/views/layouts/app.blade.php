@@ -18,10 +18,10 @@
 
     {{--  <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">  --}}
     {{--  <link rel="stylesheet" type="text/css" href="{{ asset('sass/app.css') }}">  --}}
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ 'css/main.css' }}">
     {{--  <script src="{{ url('js/main.js') }}"></script>  --}}
-    {{--  <script src="{{ secure_asset('js/main.js') }}"></script>  --}}
-    <script src="{{ secure_asset('js/main.js') }}" defer></script>
+    {{--  <script src="{{ 'js/main.js' }}"></script>  --}}
+    <script src="{{ 'js/main.js' }}" defer></script>
 
 
     <!-- Scripts -->
